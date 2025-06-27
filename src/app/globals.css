@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Neue Machina";
+  src: url("/fonts/NeueMachina-Regular.otf") format("opentype");
+  font-style: normal;
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("/fonts/Raleway-Regular.ttf") format("truetype");
+  font-style: normal;
+}
+
+@theme {
+  --font-machina: "Neue Machina";
+  --font-raleway: "Raleway";
+}
+
+html,
+body {
+  font-family: var(--font-raleway), sans-serif;
+}
