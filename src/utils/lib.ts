@@ -36,7 +36,7 @@ export const projects = [
     heading: "Template.io",
     description:
       "Easily create, organize, and personalize professional email templates for job applications, Cold Mailing, and beyond. Simplify and streamline your messaging workflow",
-    link: "https://template-io-ochre.vercel.app/",
+    link: "", //"https://template-io-ochre.vercel.app"
     github: "https://github.com/whosensei/Template.io",
     techstack: [
       "Next.js",

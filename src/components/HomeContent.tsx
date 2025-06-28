@@ -93,7 +93,7 @@ export default function HomeContent() {
           {/* Gradient Background */}
           <div className={`absolute inset-0 rounded-2xl ${
             isDarkMode
-              ? "bg-gradient-to-br from-orange-500/10 via-transparent to-purple-500/10"
+              ? "bg-gradient-to-br from-orange-500/25 via-transparent to-purple-500/25"
               : "bg-gradient-to-br from-orange-500/15 via-transparent to-blue-500/15"
           }`} />
           
@@ -186,7 +186,7 @@ export default function HomeContent() {
             {/* Minimal inner glow that enhances rather than covers */}
             <div className={`absolute inset-0 rounded-full ${
               isDarkMode 
-                ? "bg-gradient-to-br from-gray-700/20 via-transparent to-black/20"
+                ? "bg-gradient-to-br from-gray-700/30 via-transparent to-black/30"
                 : "bg-gradient-to-br from-white/20 via-transparent to-gray-100/10"
             }`} />
             

@@ -69,7 +69,7 @@ export default function TechStack() {
             {/* Subtle gradient border on hover */}
             <div className={`absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none ${
               isDarkMode
-                ? "bg-gradient-to-br from-orange-500/10 via-transparent to-purple-500/10"
+                ? "bg-gradient-to-br from-orange-500/20 via-transparent to-purple-500/20"
                 : "bg-gradient-to-br from-orange-500/15 via-transparent to-blue-500/15"
             }`} />
           </motion.div>
