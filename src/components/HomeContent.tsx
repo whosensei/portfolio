@@ -11,6 +11,7 @@ import About from "@/components/tabs/About";
 import Projects from "@/components/tabs/Projects";
 import Experiences from "@/components/tabs/Experiences";
 import Connect from "@/components/tabs/Connect";
+import { TypingText } from "@/components/ui/Typingtext";
 
 const tabComponents = {
   About: <About />,
@@ -46,9 +47,11 @@ export default function HomeContent() {
   }, [tab]);
 
   return (
-    <div className={`relative flex justify-center py-8 px-4 sm:px-6 lg:px-8 transition-all duration-300 ease-in-out min-h-screen ${
-      isDarkMode ? "bg-[#131313] text-white" : "bg-[#fbf8f0af] text-black"
-    }`}>
+    <div
+      className={`relative flex justify-center py-8 px-4 sm:px-6 lg:px-8 transition-all duration-300 ease-in-out min-h-screen ${
+        isDarkMode ? "bg-[#131313] text-white" : "bg-[#fbf8f0af] text-black"
+      }`}
+    >
       {/* Left Sidebar Navigation - Fixed position in middle left */}
       <nav className="fixed left-4 top-1/2 -translate-y-1/2 w-48 z-10 hidden lg:block">
         <ul className="space-y-2">
@@ -57,9 +60,13 @@ export default function HomeContent() {
               <button
                 onClick={() => router.push(`/?tab=${tab}`, undefined)}
                 className={`relative w-full text-left px-4 py-3 transition-all duration-300 font-large text-base rounded-lg group ${
-                  activeTab === tab 
-                    ? (isDarkMode ? "text-white" : "text-black")
-                    : (isDarkMode ? "text-gray-400 hover:text-orange-300" : "text-gray-600 hover:text-orange-600")
+                  activeTab === tab
+                    ? isDarkMode
+                      ? "text-white"
+                      : "text-black"
+                    : isDarkMode
+                    ? "text-gray-400 hover:text-orange-300"
+                    : "text-gray-600 hover:text-orange-600"
                 }`}
               >
                 {/* Glowing dash marker (like Notion) */}
@@ -67,16 +74,16 @@ export default function HomeContent() {
                   className={`absolute left-0 top-1/2 -translate-y-1/2 w-1 rounded-full transition-all duration-300 ${
                     activeTab === tab
                       ? "h-6 bg-orange-500 shadow-[0_0_12px_rgba(249,115,22,0.8)]"
-                      : `h-0 ${isDarkMode ? "bg-gray-600 group-hover:bg-orange-400" : "bg-gray-300 group-hover:bg-orange-400"} group-hover:h-3`
+                      : `h-0 ${
+                          isDarkMode
+                            ? "bg-gray-600 group-hover:bg-orange-400"
+                            : "bg-gray-300 group-hover:bg-orange-400"
+                        } group-hover:h-3`
                   }`}
                 />
-                
+
                 {/* Tab text with padding for the marker */}
-                <span className="text-lg ml-4 block">
-                  {tab}
-                </span>
-
-
+                <span className="text-lg ml-4 block">{tab}</span>
               </button>
             </li>
           ))}
@@ -86,111 +93,106 @@ export default function HomeContent() {
       {/* Main Content Area - Full original width */}
       <main className="relative max-w-4xl w-full transition-all duration-300 ease-in-out lg:pb-0 pb-15">
         {/* Header Section with Background */}
-        <section className={`mb-8 relative overflow-hidden rounded-2xl border transition-all duration-300 ${
-          isDarkMode 
-            ? "border-gray-900 bg-transparent" 
-            : "border-gray-200 bg-transparent"
-        }`}>
-          {/* Gradient Background */}
-          <div className={`absolute inset-0 rounded-2xl ${
+        <section
+          className={`mb-8 relative overflow-hidden rounded-2xl border transition-all duration-300 ${
             isDarkMode
-              ? "bg-gradient-to-br from-orange-500/12 via-transparent to-purple-500/12"
-              : "bg-gradient-to-br from-orange-500/15 via-transparent to-blue-500/15"
-          }`} />
-          
+              ? "border-gray-900 bg-transparent"
+              : "border-gray-200 bg-transparent"
+          }`}
+        >
+          {/* Gradient Background */}
+          <div
+            className={`absolute inset-0 rounded-2xl ${
+              isDarkMode
+                ? "bg-gradient-to-br from-orange-500/12 via-transparent to-purple-500/12"
+                : "bg-gradient-to-br from-orange-500/15 via-transparent to-blue-500/15"
+            }`}
+          />
+
           {/* Content */}
           <div className="relative z-10 p-8">
             <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-8 text-center sm:text-left">
-              <Image
-                src={personalInfo.heroImage}
-                height={120}
-                width={120}
-                alt={personalInfo.name}
-                className="rounded-full shadow-lg"
-              />
+              <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-8 text-center sm:text-left">
+                <Image
+                  src={personalInfo.heroImage}
+                  height={120}
+                  width={120}
+                  alt={personalInfo.name}
+                  className="rounded-full shadow-lg"
+                />
 
-              <div className="w-[200px] h-[60px] [perspective:1000px] group">
-                <div className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateX(180deg)]">
-                  {/* Front */}
-                  <div className="absolute inset-0 flex flex-col justify-center [backface-visibility:hidden]">
+                <div className="flex flex-col items-center sm:items-start gap-0">
+                  <div>
                     <h1 className="font-machina text-xl sm:text-2xl">
                       {personalInfo.name}
                     </h1>
-                    <h2 className={`font-machina text-sm sm:text-base leading-relaxed ${
-                      isDarkMode ? "text-gray-400" : "text-gray-600"
-                    }`}>
-                      {personalInfo.title}
+                    <h2
+                      className={`font-raleway text-sm sm:text-base pb-3 ${
+                        isDarkMode ? "text-gray-500" : "text-gray-500"
+                      }`}
+                    >
+                      @whosensei
                     </h2>
                   </div>
-                  {/* Back */}
-                  <div className="absolute inset-0 flex flex-col justify-center [transform:rotateX(180deg)] [backface-visibility:hidden]">
-                    <h1 className="font-machina text-xl sm:text-2xl leading-relaxed">
-                      {personalInfo.alternateTitle}
-                    </h1>
-                    <h2 className={`font-machina text-sm sm:text-base leading-relaxed ${
-                      isDarkMode ? "text-gray-400" : "text-gray-600"
-                    }`}>
-                      {personalInfo.alternateSubtitle}
-                    </h2>
-                  </div>
+                  <TypingText isDarkMode={isDarkMode} />
                 </div>
               </div>
-            </div>
 
-            <div className="flex items-center gap-4">
-              {/* Dark Mode Toggle - Minimal */}
-              <button
-                onClick={toggleDarkMode}
-                className={`p-2 rounded-lg transition-all duration-300 hover:scale-105 ${
-                  isDarkMode
-                    ? "text-gray-400 hover:text-white"
-                    : "text-gray-600 hover:text-gray-900"
-                }`}
-                aria-label="Toggle dark mode"
-              >
-                {isDarkMode ? (
-                  <Sun size={20} />
-                ) : (
-                  <Moon size={20} />
-                )}
-              </button>
+              <div className="flex items-center gap-4">
+                {/* Dark Mode Toggle - Minimal */}
+                <button
+                  onClick={toggleDarkMode}
+                  className={`p-2 rounded-lg transition-all duration-300 hover:scale-105 ${
+                    isDarkMode
+                      ? "text-gray-400 hover:text-white"
+                      : "text-gray-600 hover:text-gray-900"
+                  }`}
+                  aria-label="Toggle dark mode"
+                >
+                  {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+                </button>
 
-              <a
-                href={personalInfo.resumeUrl}
-                download
-                className={`text-sm sm:text-base leading-relaxed relative inline-block after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:w-0 after:h-[1px] after:transition-all after:duration-300 hover:after:left-0 hover:after:w-full ${
-                  isDarkMode 
-                    ? "after:bg-white hover:text-gray-300" 
-                    : "after:bg-black hover:text-gray-700"
-                }`}
-              >
-                Hiring? Check out my CV.
-              </a>
+                <a
+                  href={personalInfo.resumeUrl}
+                  download
+                  className={`text-sm sm:text-base leading-relaxed relative inline-block after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:w-0 after:h-[1px] after:transition-all after:duration-300 hover:after:left-0 hover:after:w-full ${
+                    isDarkMode
+                      ? "after:bg-white hover:text-gray-300"
+                      : "after:bg-black hover:text-gray-700"
+                  }`}
+                >
+                  Hiring? Check out my CV.
+                </a>
+              </div>
             </div>
-          </div>
           </div>
         </section>
 
         {/* Mobile Navigation - Floating Bottom Navbar */}
         <nav className="lg:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-50">
-          <div className={`relative px-4 py-2 rounded-full backdrop-blur-2xl backdrop-saturate-150 transition-all duration-300 border ${
-            isDarkMode 
-              ? "border-white/20 backdrop-brightness-110 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] bg-black/30" 
-              : "border-gray-300/60 backdrop-brightness-90 shadow-[0_8px_32px_0_rgba(0,0,0,0.15)] bg-white/30"
-          }`}>
+          <div
+            className={`relative px-4 py-2 rounded-full backdrop-blur-2xl backdrop-saturate-150 transition-all duration-300 border ${
+              isDarkMode
+                ? "border-white/20 backdrop-brightness-110 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] bg-black/30"
+                : "border-gray-300/60 backdrop-brightness-90 shadow-[0_8px_32px_0_rgba(0,0,0,0.15)] bg-white/30"
+            }`}
+          >
             {/* Subtle glass highlight - adapts to background */}
-            <div className={`absolute inset-[0.5px] rounded-full border ${
-              isDarkMode ? "border-gray-600/30" : "border-white/40"
-            }`} />
-            
+            <div
+              className={`absolute inset-[0.5px] rounded-full border ${
+                isDarkMode ? "border-gray-600/30" : "border-white/40"
+              }`}
+            />
+
             {/* Minimal inner glow that enhances rather than covers */}
-            <div className={`absolute inset-0 rounded-full ${
-              isDarkMode 
-                ? "bg-gradient-to-br from-gray-700/30 via-transparent to-black/30"
-                : "bg-gradient-to-br from-white/20 via-transparent to-gray-100/10"
-            }`} />
-            
+            <div
+              className={`absolute inset-0 rounded-full ${
+                isDarkMode
+                  ? "bg-gradient-to-br from-gray-700/30 via-transparent to-black/30"
+                  : "bg-gradient-to-br from-white/20 via-transparent to-gray-100/10"
+              }`}
+            />
+
             <ul className="relative flex gap-4">
               {Object.keys(tabComponents).map((tab) => {
                 const IconComponent = tabIcons[tab as keyof typeof tabIcons];
@@ -202,8 +204,8 @@ export default function HomeContent() {
                         activeTab === tab
                           ? "text-white"
                           : `${
-                              isDarkMode 
-                                ? "text-gray-400 hover:text-white" 
+                              isDarkMode
+                                ? "text-gray-400 hover:text-white"
                                 : "text-gray-600 hover:text-gray-900"
                             }`
                       }`}
@@ -212,37 +214,43 @@ export default function HomeContent() {
                       {activeTab === tab && (
                         <>
                           {/* Glass orange background */}
-                          <div className={`absolute inset-0 backdrop-blur-sm rounded-full border ${
-                            isDarkMode 
-                              ? "bg-orange-500/20 border-orange-400/50" 
-                              : "bg-orange-500/30 border-orange-500/60"
-                          }`} />
-                          
+                          <div
+                            className={`absolute inset-0 backdrop-blur-sm rounded-full border ${
+                              isDarkMode
+                                ? "bg-orange-500/20 border-orange-400/50"
+                                : "bg-orange-500/30 border-orange-500/60"
+                            }`}
+                          />
+
                           {/* Subtle outer glow */}
-                          <div className={`absolute inset-0 rounded-full ${
-                            isDarkMode 
-                              ? "shadow-[0_0_12px_rgba(249,115,22,0.3)]" 
-                              : "shadow-[0_0_8px_rgba(249,115,22,0.2)]"
-                          }`} />
-                          
+                          <div
+                            className={`absolute inset-0 rounded-full ${
+                              isDarkMode
+                                ? "shadow-[0_0_12px_rgba(249,115,22,0.3)]"
+                                : "shadow-[0_0_8px_rgba(249,115,22,0.2)]"
+                            }`}
+                          />
+
                           {/* Glass highlight */}
-                          <div className={`absolute inset-[0.5px] rounded-full ${
-                            isDarkMode 
-                              ? "bg-gradient-to-b from-gray-400/20 via-transparent to-black/10"
-                              : "bg-gradient-to-b from-white/30 via-white/10 to-transparent"
-                          }`} />
+                          <div
+                            className={`absolute inset-[0.5px] rounded-full ${
+                              isDarkMode
+                                ? "bg-gradient-to-b from-gray-400/20 via-transparent to-black/10"
+                                : "bg-gradient-to-b from-white/30 via-white/10 to-transparent"
+                            }`}
+                          />
                         </>
                       )}
-                      
+
                       {/* Hover effect for inactive tabs */}
                       {activeTab !== tab && (
-                        <div className={`absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${
-                          isDarkMode
-                            ? "bg-white/10"
-                            : "bg-black/10"
-                        }`} />
+                        <div
+                          className={`absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${
+                            isDarkMode ? "bg-white/10" : "bg-black/10"
+                          }`}
+                        />
                       )}
-                      
+
                       <IconComponent size={18} className="relative z-10" />
                     </button>
                   </li>
