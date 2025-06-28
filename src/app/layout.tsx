@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     creator: '@dipesshhhh',
     title: `${personalInfo.displayName}. - Portfolio`,
     description: `Portfolio Website of ${personalInfo.name}.`,  
-    images: 'https://whosensei.me/display.png',
+    images: 'https://whosensei.me/display.jpeg',
   },
 
   openGraph: {
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     siteName: `${personalInfo.name}'s Portfolio`,
     images: [
       {
-        url: 'https://whosensei.me/display.png',
+        url: 'https://whosensei.me/display.jpeg',
         width: 1200,
         height: 630,
         alt: `${personalInfo.name} - ${personalInfo.title}`,
