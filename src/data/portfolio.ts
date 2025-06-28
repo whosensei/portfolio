@@ -17,7 +17,7 @@ export const personalInfo = {
     main: `I'm Dipesh, a tech enthusiast who's been deep in the world of web apps, AI, and startup hustle. From shipping features to building my own SaaS, I love transforming ideas into user-centric products. When I'm not writing or debugging TypeScript code or fine-tuning ML models, you'll find me working on side projects, exploring web3 or other new technologies, watching F1, or playing football.`,
     current: `My strength is building core web applications which can serve people throughout the globe.
               Currently juggling Redis internals, diving into Web3, and building an AI-powered SaaS.`,
-  }
+  },
 };
 
 // ========================
@@ -106,6 +106,34 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    heading: "Echo",
+    description:
+      "Echo - A platform that lets you create ads and social media posts for your campaigns within seconds, making it easy to promote your app effectively.",
+    link: "https://echo-chi-azure.vercel.app/",
+    github: "https://github.com/whosensei/Echo",
+    techstack: [
+      "Next.js",
+      "PostgreSQL",
+      "Typescript",
+      "Tailwind CSS",
+      "OpenAI API",
+      "AWS S3",
+    ],
+    isOngoing: true,
+    category: "marketing-tool",
+  },
+  {
+    heading: "Template",
+    description:
+      "Easily create, organize, and personalize professional email templates for job applications, Cold Mailing, and beyond. Simplify and streamline your messaging workflow",
+    link: "", // "https://template-io-ochre.vercel.app"
+    github: "https://github.com/whosensei/Template.io",
+    techstack: ["Next.js", "PostgreSQL", "Typescript", "Tailwind CSS"],
+    isOngoing: true,
+    category: "productivity",
+  },
+
+  {
     heading: "Drawloop",
     description:
       "Create and edit sketches with our easy-to-use drawing tools. Perfect for brainstorming and ideation with real time collaboration and easy sharing.",
@@ -141,38 +169,6 @@ export const projects: Project[] = [
     ],
     featured: true,
     category: "ai-tool",
-  },
-  {
-    heading: "Template",
-    description:
-      "Easily create, organize, and personalize professional email templates for job applications, Cold Mailing, and beyond. Simplify and streamline your messaging workflow",
-    link: "", // "https://template-io-ochre.vercel.app"
-    github: "https://github.com/whosensei/Template.io",
-    techstack: [
-      "Next.js",
-      "PostgreSQL",
-      "Typescript",
-      "Tailwind CSS",
-    ],
-    isOngoing: true,
-    category: "productivity",
-  },
-  {
-    heading: "Echo",
-    description:
-      "Echo - A platform that lets you create ads and social media posts for your campaigns within seconds, making it easy to promote your app effectively.",
-    link: "https://echo-chi-azure.vercel.app/",
-    github: "https://github.com/whosensei/Echo",
-    techstack: [
-      "Next.js",
-      "PostgreSQL",
-      "Typescript",
-      "Tailwind CSS",
-      "OpenAI API",
-      "AWS S3",
-    ],
-    isOngoing: true,
-    category: "marketing-tool",
   },
 ];
 
@@ -218,22 +214,25 @@ export const socialLinks: SocialLink[] = [
 // ========================
 
 // Get featured projects
-export const getFeaturedProjects = () => projects.filter(project => project.featured);
+export const getFeaturedProjects = () =>
+  projects.filter((project) => project.featured);
 
 // Get ongoing projects
-export const getOngoingProjects = () => projects.filter(project => project.isOngoing);
+export const getOngoingProjects = () =>
+  projects.filter((project) => project.isOngoing);
 
 // Get projects by category
-export const getProjectsByCategory = (category: string) => 
-  projects.filter(project => project.category === category);
+export const getProjectsByCategory = (category: string) =>
+  projects.filter((project) => project.category === category);
 
 // Get featured experiences
-export const getFeaturedExperiences = () => experiences.filter(exp => exp.featured);
+export const getFeaturedExperiences = () =>
+  experiences.filter((exp) => exp.featured);
 
 // Get experiences by category
-export const getExperiencesByCategory = (category: string) => 
-  experiences.filter(exp => exp.category === category);
+export const getExperiencesByCategory = (category: string) =>
+  experiences.filter((exp) => exp.category === category);
 
 // Get tech stack by category
-export const getTechStackByCategory = (category: string) => 
-  techStack.filter(tech => tech.category === category); 
+export const getTechStackByCategory = (category: string) =>
+  techStack.filter((tech) => tech.category === category);

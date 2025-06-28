@@ -47,7 +47,7 @@ export default function HomeContent() {
 
   return (
     <div className={`relative flex justify-center py-8 px-4 sm:px-6 lg:px-8 transition-all duration-300 ease-in-out min-h-screen ${
-      isDarkMode ? "bg-[#08090A] text-white" : "bg-[#fbf8f0af] text-black"
+      isDarkMode ? "bg-[#131313] text-white" : "bg-[#fbf8f0af] text-black"
     }`}>
       {/* Left Sidebar Navigation - Fixed position in middle left */}
       <nav className="fixed left-4 top-1/2 -translate-y-1/2 w-48 z-10 hidden lg:block">
