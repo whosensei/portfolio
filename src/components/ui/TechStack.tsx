@@ -1,7 +1,8 @@
 "use client";
 
+import React from "react";
 import { motion } from "framer-motion";
-import { FaReact, FaNodeJs, FaDocker, FaAws, FaJava } from "react-icons/fa";
+import { FaReact, FaNodeJs, FaDocker, FaAws } from "react-icons/fa";
 import {
   SiPrisma,
   SiTailwindcss,
@@ -12,31 +13,33 @@ import {
   SiOpenai,
   SiPostgresql
 } from "react-icons/si";
+import { techStack, personalInfo } from "@/data/portfolio";
 import { useDarkMode } from "@/utils/DarkModeContext";
+
+// Icon mapping
+const iconMap: Record<string, React.ReactElement> = {
+  "React": <FaReact className="h-5 w-5" />,
+  "Next.js": <SiNextdotjs className="h-5 w-5" />,
+  "Node.js": <FaNodeJs className="h-5 w-5" />,
+  "Python": <SiPython className="h-5 w-5" />,
+  "JavaScript": <SiJavascript className="h-5 w-5" />,
+  "TypeScript": <SiTypescript className="h-5 w-5" />,
+  "Postgresql": <SiPostgresql className="h-5 w-5" />,
+  "Prisma": <SiPrisma className="h-5 w-5" />,
+  "Docker": <FaDocker className="h-5 w-5" />,
+  "AWS": <FaAws className="h-5 w-5" />,
+  "Tailwind": <SiTailwindcss className="h-5 w-5" />,
+  "OpenAI": <SiOpenai className="h-5 w-5" />,
+};
 
 export default function TechStack() {
   const { isDarkMode } = useDarkMode();
-  
-  const stack = [
-    { label: "React", icon: <FaReact className="h-5 w-5" /> },
-    { label: "Next.js", icon: <SiNextdotjs className="h-5 w-5" /> },
-    { label: "Node.js", icon: <FaNodeJs className="h-5 w-5" /> },
-    { label: "Python", icon: <SiPython className="h-5 w-5" /> },
-    { label: "JavaScript", icon: <SiJavascript className="h-5 w-5" /> },
-    { label: "TypeScript", icon: <SiTypescript className="h-5 w-5" /> },
-    { label: "Postgresql", icon: <SiPostgresql className="h-5 w-5" /> },
-    { label: "Prisma", icon: <SiPrisma className="h-5 w-5" /> },
-    { label: "Docker", icon: <FaDocker className="h-5 w-5" /> },
-    { label: "AWS", icon: <FaAws className="h-5 w-5" /> },
-    { label: "Tailwind", icon: <SiTailwindcss className="h-5 w-5" /> },
-    { label: "OpenAI", icon: <SiOpenai className="h-5 w-5" /> },
-  ];
 
   return (
     <div className="space-y-6">
       {/* Tech Grid */}
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-        {stack.map((tech, index) => (
+        {techStack.map((tech, index) => (
           <motion.div
             key={tech.label}
             initial={{ opacity: 0, y: 10 }}
@@ -55,7 +58,7 @@ export default function TechStack() {
                   ? "text-gray-400 group-hover:text-white" 
                   : "text-gray-600 group-hover:text-gray-900"
               }`}>
-                {tech.icon}
+                {iconMap[tech.label] || <span className="h-5 w-5" />}
               </div>
               <span className={`text-sm leading-relaxed transition-colors duration-300 ${
                 isDarkMode 
@@ -81,15 +84,7 @@ export default function TechStack() {
         <p className={`text-lg leading-relaxed ${
           isDarkMode ? "text-gray-300" : "text-gray-700"
         }`}>
-          My strength is building core web applications which can serve people
-          throughout the globe. I&apos;m currently working with TypeScript and
-          TurboRepos.
-        </p>
-        <p className={`text-lg leading-relaxed ${
-          isDarkMode ? "text-gray-300" : "text-gray-700"
-        }`}>
-          Currently learning more about FinTech, with a focus on how tech can
-          solve real problems in finance.
+          {personalInfo.bio.current}
         </p>
       </div>
     </div>

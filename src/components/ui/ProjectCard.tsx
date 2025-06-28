@@ -32,7 +32,7 @@ export const ProjectCard = ({
       <div className="flex items-start justify-between mb-4">
         <div className="flex-1">
           <div className="flex items-center gap-3 mb-2">
-            <h3 className={`text-lg leading-relaxed ${
+            <h3 className={`text-lg font-semibold leading-relaxed ${
               isDarkMode ? "text-white" : "text-gray-900"
             }`}>
               {heading}
@@ -47,7 +47,7 @@ export const ProjectCard = ({
               </span>
             )}
           </div>
-          <p className={`text-lg leading-relaxed ${
+          <p className={`text-md leading-relaxed ${
             isDarkMode ? "text-gray-400" : "text-gray-600"
           }`}>
             {description}
@@ -97,7 +97,7 @@ export const ProjectCard = ({
               {/* Subtle gradient border on hover */}
         <div className={`absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none ${
           isDarkMode
-            ? "bg-gradient-to-br from-orange-500/20 via-transparent to-purple-500/20"
+            ? "bg-gradient-to-br from-orange-500/12 via-transparent to-purple-500/12"
             : "bg-gradient-to-br from-orange-500/15 via-transparent to-blue-500/15"
         }`} />
     </div>

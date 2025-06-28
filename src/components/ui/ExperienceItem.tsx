@@ -48,7 +48,7 @@ export const ExperienceItem = ({
         <div className="flex-1">
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-3">
-              <h3 className={`text-xl font-semibold group-hover/button:${
+              <h3 className={`text-lg font-semibold group-hover/button:${
                 isDarkMode ? "text-white" : "text-gray-900"
               } transition-colors duration-200 ${
                 isDarkMode ? "text-gray-100" : "text-gray-900"
@@ -128,7 +128,7 @@ export const ExperienceItem = ({
       {/* Subtle gradient border on hover */}
       <div className={`absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none ${
         isDarkMode
-          ? "bg-gradient-to-br from-orange-500/20 via-transparent to-purple-500/20"
+          ? "bg-gradient-to-br from-orange-500/12 via-transparent to-purple-500/12"
           : "bg-gradient-to-br from-orange-500/15 via-transparent to-blue-500/15"
       }`} />
     </div>

@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { DarkModeProvider } from "@/utils/DarkModeContext";
+import { personalInfo } from "@/data/portfolio";
 
 export const metadata: Metadata = {
-  title: "Dipesh.",
-  description: "Portfolio Website of Dipesh Singnurkar.",
+  title: `${personalInfo.displayName}.`,
+  description: `Portfolio Website of ${personalInfo.name}.`,
 };
 
 export default function RootLayout({

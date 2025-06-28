@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { ExperienceItem } from "./ExperienceItem";
-import { useDarkMode } from "@/utils/DarkModeContext";
 
 interface Experience {
   heading: string;
@@ -14,7 +13,6 @@ interface Props {
 
 export const ExperienceListGroup = ({ experiences }: Props) => {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
-  const { isDarkMode } = useDarkMode();
 
   const handleToggle = (index: number) => {
     setExpandedIndex((prev) => (prev === index ? null : index));

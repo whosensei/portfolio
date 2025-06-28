@@ -1,5 +1,5 @@
 import { ProjectCard } from "../ui/ProjectCard";
-import { projects } from "./../../utils/lib";
+import { projects } from "@/data/portfolio";
 import { useDarkMode } from "@/utils/DarkModeContext";
 
 export default function Projects() {

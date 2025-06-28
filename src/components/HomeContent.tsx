@@ -6,6 +6,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { Sun, Moon, User, Folder, Briefcase, Mail } from "lucide-react";
 import { useDarkMode } from "@/utils/DarkModeContext";
+import { personalInfo } from "@/data/portfolio";
 import About from "@/components/tabs/About";
 import Projects from "@/components/tabs/Projects";
 import Experiences from "@/components/tabs/Experiences";
@@ -93,7 +94,7 @@ export default function HomeContent() {
           {/* Gradient Background */}
           <div className={`absolute inset-0 rounded-2xl ${
             isDarkMode
-              ? "bg-gradient-to-br from-orange-500/25 via-transparent to-purple-500/25"
+              ? "bg-gradient-to-br from-orange-500/12 via-transparent to-purple-500/12"
               : "bg-gradient-to-br from-orange-500/15 via-transparent to-blue-500/15"
           }`} />
           
@@ -102,10 +103,10 @@ export default function HomeContent() {
             <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-8 text-center sm:text-left">
               <Image
-                src="/hero.jpeg"
+                src={personalInfo.heroImage}
                 height={120}
                 width={120}
-                alt="Dipesh Singnurkar"
+                alt={personalInfo.name}
                 className="rounded-full shadow-lg"
               />
 
@@ -114,23 +115,23 @@ export default function HomeContent() {
                   {/* Front */}
                   <div className="absolute inset-0 flex flex-col justify-center [backface-visibility:hidden]">
                     <h1 className="font-machina text-xl sm:text-2xl">
-                      Dipesh Singnurkar
+                      {personalInfo.name}
                     </h1>
                     <h2 className={`font-machina text-sm sm:text-base leading-relaxed ${
                       isDarkMode ? "text-gray-400" : "text-gray-600"
                     }`}>
-                      Full Stack Engineer
+                      {personalInfo.title}
                     </h2>
                   </div>
                   {/* Back */}
                   <div className="absolute inset-0 flex flex-col justify-center [transform:rotateX(180deg)] [backface-visibility:hidden]">
                     <h1 className="font-machina text-xl sm:text-2xl leading-relaxed">
-                      whosensei
+                      {personalInfo.alternateTitle}
                     </h1>
                     <h2 className={`font-machina text-sm sm:text-base leading-relaxed ${
                       isDarkMode ? "text-gray-400" : "text-gray-600"
                     }`}>
-                      Humble Guy!
+                      {personalInfo.alternateSubtitle}
                     </h2>
                   </div>
                 </div>
@@ -156,7 +157,7 @@ export default function HomeContent() {
               </button>
 
               <a
-                href="./Dipesh_Resume.pdf"
+                href={personalInfo.resumeUrl}
                 download
                 className={`text-sm sm:text-base leading-relaxed relative inline-block after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:w-0 after:h-[1px] after:transition-all after:duration-300 hover:after:left-0 hover:after:w-full ${
                   isDarkMode 

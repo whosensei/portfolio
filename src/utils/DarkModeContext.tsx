@@ -15,14 +15,14 @@ export const DarkModeProvider: React.FC<{ children: React.ReactNode }> = ({
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
-    // Check for saved dark mode preference or system preference
+    // Check for saved dark mode preference, default to light mode
     const savedMode = localStorage.getItem("darkMode");
-    const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
     
     if (savedMode !== null) {
       setIsDarkMode(savedMode === "true");
     } else {
-      setIsDarkMode(systemPrefersDark);
+      // Default to light mode instead of system preference
+      setIsDarkMode(false);
     }
   }, []);
 

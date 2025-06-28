@@ -1,4 +1,4 @@
-import { experiences } from "@/utils/experience";
+import { experiences } from "@/data/portfolio";
 import { ExperienceListGroup } from "../ui/ExperienceListGroup";
 import { useDarkMode } from "@/utils/DarkModeContext";
 
