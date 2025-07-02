@@ -5,7 +5,7 @@
 // ========================
 
 export const personalInfo = {
-  name: "Dipesh Singnurkar",
+  name: "Hi, I'm Dipesh 👋",
   displayName: "Dipesh",
   title: "Full Stack Engineer",
   alternateTitle: "whosensei",
