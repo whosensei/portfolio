@@ -3,8 +3,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaReact, FaNodeJs, FaDocker, FaAws } from "react-icons/fa";
+import { FaGolang } from "react-icons/fa6";
 import {
-  SiPrisma,
   SiTailwindcss,
   SiNextdotjs,
   SiPython,
@@ -25,7 +25,7 @@ const iconMap: Record<string, React.ReactElement> = {
   "JavaScript": <SiJavascript className="h-5 w-5" />,
   "TypeScript": <SiTypescript className="h-5 w-5" />,
   "Postgresql": <SiPostgresql className="h-5 w-5" />,
-  "Prisma": <SiPrisma className="h-5 w-5" />,
+  "Golang": <FaGolang className="h-5 w-5" />,
   "Docker": <FaDocker className="h-5 w-5" />,
   "AWS": <FaAws className="h-5 w-5" />,
   "Tailwind": <SiTailwindcss className="h-5 w-5" />,

@@ -16,7 +16,7 @@ export const personalInfo = {
   bio: {
     main: `I'm Dipesh, a tech enthusiast who's been deep in the world of web apps, AI, and startup hustle. From shipping features to building my own SaaS, I love transforming ideas into user-centric products. When I'm not writing or debugging TypeScript code or fine-tuning ML models, you'll find me working on side projects, exploring web3 or other new technologies, watching F1, or playing football.`,
     current: `My strength is building core web applications which can serve people throughout the globe.
-              Currently juggling Redis internals, diving into Web3, and building an AI-powered SaaS.`,
+              Currently juggling DevOps, diving into Fintech, and building an AI-powered SaaS.`,
   },
 };
 
@@ -31,7 +31,7 @@ export const techStack = [
   { label: "JavaScript", category: "language" },
   { label: "TypeScript", category: "language" },
   { label: "Postgresql", category: "database" },
-  { label: "Prisma", category: "database" },
+  { label: "Golang", category: "language" },
   { label: "Docker", category: "devops" },
   { label: "AWS", category: "cloud" },
   { label: "Tailwind", category: "styling" },
